@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import ProductCard from '../productCart/productCart';
+import './candles.css'
 
 const Candles = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:8080/products')
+    fetch('http://localhost:8080/Categories/1/products')
       .then((res) => res.json())
       .then((data) => {
         const productList = data._embedded.productList;
@@ -21,10 +22,16 @@ const Candles = () => {
       <div className="filter-div"></div>
       {/* Product List */}
       <div className="product-list">
-        {products.map((product) => {
-          return <ProductCard key={product.id} productList={product} />;
-        })}
+  {products.map((product) => {
+    return (
+      <div className="product-card-container" key={product.id}>
+        <ProductCard productList={product} />
       </div>
+    );
+  })}
+</div>
+
+
     </div>
   );
 };
