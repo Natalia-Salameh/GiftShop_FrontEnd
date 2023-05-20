@@ -1,3 +1,4 @@
+import React from "react";
 import { Routes, BrowserRouter, Route } from "react-router-dom";
 import "./App.css";
 import Navbar from "./common/header/Navbar";
@@ -8,6 +9,8 @@ import Embroidery from "./pages/embroidery/embroidery";
 import Resin from "./pages/resin/resin";
 import WoodArt from "./pages/woodArt/woodArt";
 import Home from "./pages/home";
+import ProductCard from "./pages/productCart/productCart";
+
 
 function App() {
   return (
