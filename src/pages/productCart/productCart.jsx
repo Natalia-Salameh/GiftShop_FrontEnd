@@ -1,24 +1,20 @@
 import React from 'react';
 
-import { Link } from 'react-router-dom';
-
-const ProductCard = (props) => {
-  const { productList } = props;
-
+const ProductCard = ({ productList }) => {
   return (
-    <Link to={`/products/${productList.id}`}>
-      <div className="product-card">
-        <div className="product-image">
-          <img src={productList.image} />
-        </div>
-        <div>
-          <h3>{productList.name}</h3>
+    <div className="product-card">
+      <div className="image-container">
+        <img src={productList.image} alt={productList.name} />
+      </div>
+      <div className="product-details">
+         <h3>{productList.name}</h3>
           <p>{productList.price} $</p>
           <button> see More </button>
-        </div>
       </div>
-    </Link>
+    </div>
   );
 };
 
 export default ProductCard;
+
+

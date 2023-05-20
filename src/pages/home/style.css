@@ -1,0 +1,44 @@
+.home-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.filter-div {
+    /* Add styling for the filter div */
+}
+
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.product-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.image-container {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    margin-bottom: 1px;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.product-details {
+    /* Add styling for product details */
+}

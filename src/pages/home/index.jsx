@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ProductCard from '../productCart/productCart';
-
+import './style.css';
 const Home = () => {
   const [products, setProducts] = useState([]);
 

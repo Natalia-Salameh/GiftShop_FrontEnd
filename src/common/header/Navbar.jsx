@@ -36,12 +36,7 @@ const Navbar = () => {
             <li>
               <Link to="/embroidery">Embroidery</Link>
             </li>
-            <li>
-              <Link to="/home">Home</Link>
-            </li>
-            <li>
-              <Link to="/productCart">Product</Link>
-            </li>
+            
           </ul>
         </nav>
       </div>
