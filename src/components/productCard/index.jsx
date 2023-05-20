@@ -9,12 +9,10 @@ const ProductCard = ({ productList }) => {
       <div className="product-details">
          <h3>{productList.name}</h3>
           <p>{productList.price} $</p>
-          <button> see More </button>
       </div>
     </div>
   );
 };
 
 export default ProductCard;
-
 
