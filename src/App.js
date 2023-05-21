@@ -9,6 +9,7 @@ import Embroidery from "./pages/embroidery/embroidery";
 import Resin from "./pages/resin/resin";
 import WoodArt from "./pages/woodArt/woodArt";
 import Home from "./pages/home";
+import Footer from "./common/footer/footer";
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
               <div>
                 <Navbar />
                 <Home />
+                <Footer/>
               </div>
             }
           />
@@ -31,6 +33,7 @@ function App() {
               <div>
                 <Navbar />
                 <Candles />
+                <Footer/>
               </div>
             }
           />
@@ -40,6 +43,7 @@ function App() {
               <div>
                 <Navbar />
                 <Ceramic />
+                <Footer/>
               </div>
             }
           />
@@ -49,6 +53,7 @@ function App() {
               <div>
                 <Navbar />
                 <Crochet />
+                <Footer/>
               </div>
             }
           />
@@ -58,6 +63,7 @@ function App() {
               <div>
                 <Navbar />
                 <Embroidery />
+                <Footer/>
               </div>
             }
           />
@@ -67,6 +73,7 @@ function App() {
               <div>
                 <Navbar />
                 <Resin />
+                <Footer/>
               </div>
             }
           />
@@ -76,6 +83,7 @@ function App() {
               <div>
                 <Navbar />
                 <WoodArt />
+                <Footer/>
               </div>
             }
           />
