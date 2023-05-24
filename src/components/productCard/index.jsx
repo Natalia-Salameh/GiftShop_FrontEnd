@@ -1,7 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const ProductCard = ({ productList }) => {
   return (
+    <Link to={`/products/${productList.id}`}>
     <div className="product-card">
       <div className="image-container">
         <img src={productList.image} alt={productList.name} />
@@ -11,6 +13,7 @@ const ProductCard = ({ productList }) => {
           <p>{productList.price} $</p>
       </div>
     </div>
+    </Link>
   );
 };
 

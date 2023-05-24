@@ -41,7 +41,7 @@ const Navbar = () => {
         </nav>
       </div>
       <div className="cart">
-        <img src="./images/download.png" alt="Cart" />
+      <Link to="/cart"><img src="./images/download.png" alt="Cart" /></Link> 
         <span>0</span>
       </div>
     </header>

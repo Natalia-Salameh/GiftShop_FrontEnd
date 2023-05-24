@@ -11,7 +11,6 @@ import WoodArt from "./pages/woodArt/woodArt";
 import Home from "./pages/home";
 import Footer from "./common/footer/footer";
 
-
 function App() {
   return (
     <div className="App">
@@ -23,7 +22,7 @@ function App() {
               <div>
                 <Navbar />
                 <Home />
-                <Footer/>
+                <Footer />
               </div>
             }
           />
@@ -33,7 +32,7 @@ function App() {
               <div>
                 <Navbar />
                 <Candles />
-                <Footer/>
+                <Footer />
               </div>
             }
           />
@@ -43,7 +42,7 @@ function App() {
               <div>
                 <Navbar />
                 <Ceramic />
-                <Footer/>
+                <Footer />
               </div>
             }
           />
@@ -53,7 +52,7 @@ function App() {
               <div>
                 <Navbar />
                 <Crochet />
-                <Footer/>
+                <Footer />
               </div>
             }
           />
@@ -63,7 +62,7 @@ function App() {
               <div>
                 <Navbar />
                 <Embroidery />
-                <Footer/>
+                <Footer />
               </div>
             }
           />
@@ -73,7 +72,7 @@ function App() {
               <div>
                 <Navbar />
                 <Resin />
-                <Footer/>
+                <Footer />
               </div>
             }
           />
@@ -83,7 +82,16 @@ function App() {
               <div>
                 <Navbar />
                 <WoodArt />
-                <Footer/>
+                <Footer />
+              </div>
+            }
+          />
+          <Route
+            path="/cart"
+            element={
+              <div>
+                <Navbar />
+                <Footer />
               </div>
             }
           />
