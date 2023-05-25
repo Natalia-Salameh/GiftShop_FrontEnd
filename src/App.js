@@ -10,6 +10,7 @@ import Resin from "./pages/resin/resin";
 import WoodArt from "./pages/woodArt/woodArt";
 import Home from "./pages/home";
 import Footer from "./common/footer/footer";
+import ProductDetails from "./pages/productDetails";
 
 function App() {
   return (
@@ -95,6 +96,14 @@ function App() {
               </div>
             }
           />
+
+        <Route path='/products/id/:id' 
+        element={<div> 
+            <Navbar />
+            <ProductDetails/>
+            <Footer />
+          </div>} />
+
         </Routes>
       </BrowserRouter>
     </div>
