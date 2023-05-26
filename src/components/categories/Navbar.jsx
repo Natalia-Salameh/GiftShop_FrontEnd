@@ -1,11 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import ProductSearchInput from "../search";
-import './navbar.css';
+import "./navbar.css";
 
 const Navbar = () => {
-  
-return (
+  // Simulating cart items count
+  const cartItemsCount = 3; // Replace with your logic to get the actual cart count
+
+  return (
     <header className="header">
       <div className="logo">
         <Link to="/">
@@ -15,9 +17,7 @@ return (
       <div className="header-middle">
         <div className="search-bar">
           <div className="search-input">
-             <ProductSearchInput/>
-            {/* <input type="text" placeholder="Search" /> */}
-            {/* <img className="search-icon" src="./images/search-icon.png" alt="Search" /> */}
+            <ProductSearchInput />
           </div>
         </div>
         <nav className="navlink">
@@ -53,9 +53,11 @@ return (
           <span>SignUp</span>
         </Link>
         <Link to="/cart">
-          <img src="./images/p4.png" alt="Cart" />
+          <div className="cart-icon">
+            <img src="./images/p4.png" alt="Cart" />
+            {cartItemsCount > 0 && <span className="cart-count">{cartItemsCount}</span>}
+          </div>
         </Link>
-        <span>0</span>
       </div>
     </header>
   );
