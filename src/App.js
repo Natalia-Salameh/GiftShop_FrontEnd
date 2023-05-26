@@ -11,10 +11,13 @@ import WoodArt from "./pages/woodArt/woodArt";
 import Home from "./pages/home";
 import Footer from "./common/footer/footer";
 import ProductDetails from "./pages/productDetails";
-
+import ProductPage from "./pages/search";
+import AuthContextProvider from "./context/AuthContextProvider";
+import LoginPage from "./pages/Login";
 function App() {
   return (
     <div className="App">
+      <AuthContextProvider>
       <BrowserRouter>
         <Routes>
           <Route
@@ -104,9 +107,22 @@ function App() {
             <Footer />
           </div>} />
 
+          <Route path="/products/name/:name"
+           element={<div>
+            <Navbar />
+            <ProductPage/>
+            <Footer />
+            </div>} />
+            <Route path="/Login" element={<LoginPage />} />
+
+
         </Routes>
       </BrowserRouter>
+      </AuthContextProvider>
+
     </div>
+
+    
   );
 }
 

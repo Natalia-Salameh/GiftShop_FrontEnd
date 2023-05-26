@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import ProductSearchInput from "../search";
 const Navbar = () => {
   return (
     <header className="header">
@@ -12,8 +12,9 @@ const Navbar = () => {
       <div className="header-middle">
         <div className="search-bar">
           <div className="search-input">
-            <input type="text" placeholder="Search" />
-            <img className="search-icon" src="./images/search-icon.png" alt="Search" />
+            <ProductSearchInput/>
+            {/* <input type="text" placeholder="Search" /> */}
+            {/* <img className="search-icon" src="./images/search-icon.png" alt="Search" /> */}
           </div>
         </div>
         <nav className="navlink">
@@ -43,6 +44,10 @@ const Navbar = () => {
       <div className="cart">
       <Link to="/cart"><img src="./images/download.png" alt="Cart" /></Link> 
         <span>0</span>
+
+        <span>
+          <Link to="/login"> <img src="./images/icons8-customer-100.png" alt="Cart" /> </Link>
+        </span>
       </div>
     </header>
   );

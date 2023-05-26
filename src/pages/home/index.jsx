@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import ProductCard from '../../components/productCard';
 import './style.css';
-
 const NextButton = ({ nextPage, fetchProducts }) => {
   const handleNextPage = () => {
     fetchProducts(nextPage);
   };
+  
 
   return (
     <button className='circular-button' onClick={handleNextPage}>
@@ -31,6 +31,7 @@ const Home = () => {
   useEffect(() => {
     fetchProducts(currentPage);
   }, [currentPage]);
+  
 
   return (
     <div className="home-div">
