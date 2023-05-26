@@ -14,6 +14,8 @@ import ProductDetails from "./pages/productDetails";
 import ProductPage from "./pages/search";
 import AuthContextProvider from "./context/AuthContextProvider";
 import LoginPage from "./pages/Login";
+import SignupPage from "./pages/Login/signup";
+
 function App() {
   return (
     <div className="App">
@@ -114,7 +116,7 @@ function App() {
             <Footer />
             </div>} />
             <Route path="/Login" element={<LoginPage />} />
-
+<Route path="/signup" element={<SignupPage />} />
 
         </Routes>
       </BrowserRouter>

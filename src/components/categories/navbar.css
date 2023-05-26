@@ -1,16 +1,129 @@
-.navlink {
-    display: flex;
-    justify-content: center; /* Align items horizontally in the center */
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .navlink > li {
-    margin: 10px;
-    padding: 20px;
-    font-size: 30px;
-  }
-  
-  .navlink li a {
-    text-decoration: none; /* Remove underline */
-  }
+/* navbar.css */
+
+/* Global Styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Header Styles */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: rgba(115, 117, 122, 0.8);
+  position: relative;
+  z-index: 1;
+}
+
+.logo a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.logo img {
+  height: 80px;
+  width: auto;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover img {
+  transform: scale(1.1);
+}
+
+.logo img {
+  filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.2));
+}
+
+.header-middle {
+  flex: 1;
+  margin: 0 1rem;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  overflow: hidden;
+  height: 30px;
+}
+
+.search-input {
+  display: flex;
+  align-items: center;
+  margin: 0 0.5rem;
+  flex-grow: 1;
+}
+
+.search-input input {
+  border: none;
+  outline: none;
+  padding: 0.5rem;
+  font-size: 14px;
+  background-color: transparent;
+  color: #fff;
+  width: 100%;
+}
+
+.search-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 0.5rem;
+}
+
+.navlink ul {
+  list-style: none;
+  display: flex;
+}
+
+.navlink ul li {
+  margin-right: 1rem;
+}
+
+.navlink ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.navlink ul li a:hover {
+  color: #ccc;
+  transform: translateY(-2px);
+}
+
+.cart {
+  display: flex;
+  align-items: center;
+}
+
+.login-button,
+.signup-button {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #fff;
+  margin-right: 1rem;
+  font-size: 14px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.login-button img,
+.signup-button img,
+.cart img {
+  width: 20px;
+  height: 20px;
+  margin-right: 0.5rem;
+}
+
+.cart span {
+  margin-right: 0.5rem;
+  font-size: 14px;
+  font-weight: bold;
+}

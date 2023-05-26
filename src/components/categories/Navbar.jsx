@@ -1,18 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import ProductSearchInput from "../search";
+import './navbar.css';
+
 const Navbar = () => {
-  return (
+  
+return (
     <header className="header">
       <div className="logo">
         <Link to="/">
-          <img src="./images/348363434_1311525329398934_2469258509730488060_n.jpg" alt="Logo" />
+          <img src="./images/p2.png" alt="Logo" />
         </Link>
       </div>
       <div className="header-middle">
         <div className="search-bar">
           <div className="search-input">
-            <ProductSearchInput/>
+             <ProductSearchInput/>
             {/* <input type="text" placeholder="Search" /> */}
             {/* <img className="search-icon" src="./images/search-icon.png" alt="Search" /> */}
           </div>
@@ -37,17 +40,22 @@ const Navbar = () => {
             <li>
               <Link to="/embroidery">Embroidery</Link>
             </li>
-            
           </ul>
         </nav>
       </div>
       <div className="cart">
-      <Link to="/cart"><img src="./images/download.png" alt="Cart" /></Link> 
+        <Link to="/login" className="login-button">
+          <img src="./images/p3.png" alt="Login" />
+          <span>Login</span>
+        </Link>
+        <Link to="/signup" className="signup-button">
+          <img src="./images/My project.png" alt="SignUp" />
+          <span>SignUp</span>
+        </Link>
+        <Link to="/cart">
+          <img src="./images/p4.png" alt="Cart" />
+        </Link>
         <span>0</span>
-
-        <span>
-          <Link to="/login"> <img src="./images/icons8-customer-100.png" alt="Cart" /> </Link>
-        </span>
       </div>
     </header>
   );
