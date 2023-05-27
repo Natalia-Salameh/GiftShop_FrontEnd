@@ -1,56 +1,210 @@
-/* Style the main div */
-.div {
-  width: 80%;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #fff;
-  padding: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700');
+
+/* Variables */
+:root {
+  --font: 'Lato', sans-serif;
+  --white: #F5F5F5;
+  --light: #E0C9CB;
+  --tan: #C3A1A0;
+  --pink: #D9AAB7;
+  --rose: #BA7E7E;
+  --dark: #4E4E4E;
 }
 
-/* Style the h1 */
+/* Center container in the middle */
+/* html {
+  display: grid;
+  min-height: 100%;
+} */
+
+/* body {
+  display: grid;
+  background: var(--light);
+  font-family: var(--font), sans-serif;
+  text-transform: uppercase;
+} */
+
+.contai {
+  position: relative;
+  margin: auto;
+  overflow: hidden;
+  width: 100%; /* Updated */
+  height: 500px; /* Updated */
+  background: var(--white);
+  box-shadow: 5px 5px 15px rgba(var(--rose), 0.5);
+  border-radius: 10px;
+}
+p {
+  font-size: 0.6em;
+  color: var(--rose);
+  letter-spacing: 1px;
+}
+
 .h1 {
-  font-size: 36px;
-  font-weight: bold;
-  margin-bottom: 40px;
+  font-size: 2.2em;
+  color: var(--dark);
+  margin-top: -5px;
 }
 
-/* Style the product image */
-.img {
-  min-width: 100%;
-  height: auto;
-  margin-bottom: 30px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+.h2 {
+  color: var(--tan);
+  margin-top: -5px;
 }
-
-/* Style the product title */
 .h3 {
-  font-size: 28px;
-  font-weight: bold;
-  margin-bottom: 20px;
+  color: var(--dark);
+  font-size: 1.0em;
+  margin-top: -5px;
 }
 
-/* Style the product description */
-.p {
-  font-size: 20px;
-  line-height: 1.5;
-  margin-bottom: 20px;
+.img {
+  width: 500px;
+  margin-top: 47px;
+  margin-left: 100px;
+  background: none;
+
+}
+
+.slideshow-buttons {
+  top: 70%;
+  display: none;
+}
+
+.one,
+.two,
+.three,
+.four {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--light);
+}
+
+.one {
+  left: 22%;
+}
+
+.two {
+  left: 27%;
+}
+
+.three {
+  left: 32%;
+}
+
+.four {
+  left: 37%;
+}
+
+.product {
+  position: absolute;
+  width: 40%;
+  height: 500px;
+  top: 20%;
+  left: 55%;
+}
+
+.desc {
+  text-transform: none;
+  letter-spacing: 0;
+  margin-bottom: 17px;
+  color: var(--dark);
+  font-size: 0.9em;
+  line-height: 1.6em;
+  margin-right: 25px;
+  text-align: justify;
+}
+
+button {
+  background: var(--light);
+  padding: 10px;
+  display: inline-block;
+  outline: 0;
+  border: 0;
+  margin: -1px;
+  border-radius: 2px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--white);
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--rose);
+  transition: all 0.4s ease-in-out;
+  
+}
+
+.add {
+  width: 67%;
+  background-color: #C3A1A0;
+}
+
+.like {
+  margin-left: 5px;
+  width: 22%;
+  background-color: #C3A1A0;
+  font-size: 1.0em;
+
+
+}
+
+.sizes {
+  display: grid;
+  color: var(--pink);
+  grid-template-columns: repeat(auto-fill, 30px);
+  width: 60%;
+  grid-gap: 4px;
+  margin-left: 100px;
+  margin-top: 5px;
+}
+
+.sizes:hover {
+  cursor: pointer;
+}
+
+.pick {
+  margin-top: 11px;
+  margin-bottom: 0;
+  margin-left: 100px;
+}
+
+.size {
+  padding: 9px;
+  border: 1px solid var(--light);
+  font-size: 0.7em;
   text-align: center;
 }
 
-/* Style the product category */
-.p2 {
-  font-style: italic;
-  color: #999;
-  margin-bottom: 10px;
+.size:hover {
+  background: var(--rose);
+  color: var(--white);
+  transition: all 0.4s ease-in-out;
 }
 
-/* Style the product price */
-.p3 {
-  font-weight: bold;
-  color: #c00;
-  font-size: 28px;
-  margin-bottom: 30px;
+.focus {
+  background: var(--rose);
+  color: var(--white);
 }
+/* 
+footer {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  padding: 10px;
+} */
+
+/* footer p {
+  letter-spacing: 3px;
+}
+
+footer a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: #7d7d7d;
+} */
