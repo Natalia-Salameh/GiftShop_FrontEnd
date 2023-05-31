@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "./login.css";
 
 const LoginPage = () => {
@@ -6,29 +7,36 @@ const LoginPage = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [isLoggedIn, setIsLoggedIn] = useState(false); // New state for tracking login status
+  const [userRole, setUserRole] = useState(''); // New state for user role
 
   useEffect(() => {
     // Check if the user is already logged in
-    const isLoggedIn = localStorage.getItem('isLoggedIn');
-    setIsLoggedIn(isLoggedIn);
+    const loggedIn = localStorage.getItem('isLoggedIn');
+    const role = localStorage.getItem('userRole');
+    setIsLoggedIn(loggedIn);
+    setUserRole(role);
   }, []);
 
   const handleLogin = () => {
     // Perform login logic here
     // ...
 
-    // Set the login status in local storage
+    // Set the login status and user role in local storage
     localStorage.setItem('isLoggedIn', true);
+    localStorage.setItem('userRole', 'ROLE_USER');
     setIsLoggedIn(true);
+    setUserRole('ROLE_USER');
   };
 
   const handleLogout = () => {
     // Perform logout logic here
     // ...
 
-    // Remove the login status from local storage
+    // Remove the login status and user role from local storage
     localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('userRole');
     setIsLoggedIn(false);
+    setUserRole('');
   };
 
   const handleSubmit = (e) => {
@@ -59,9 +67,11 @@ const LoginPage = () => {
         console.log(data);
         // Perform further actions with the JWT token and user details
 
-        // Set the login status in local storage
+        // Set the login status and user role in local storage
         localStorage.setItem('isLoggedIn', true);
+        localStorage.setItem('userRole', data.roles[0]);
         setIsLoggedIn(true);
+        setUserRole(data.roles[0]);
 
         // Go back to the previous page after successful login
         window.history.back();
@@ -74,13 +84,24 @@ const LoginPage = () => {
   };
 
   if (isLoggedIn) {
-    // Render the profile component when the user is logged in
-    return (
-      <div>
-        <h1>Welcome to the Profile Page</h1>
-        <button onClick={handleLogout}>Logout</button>
-      </div>
-    );
+    if (userRole === 'ROLE_ADMIN') {
+      // Render the admin component when the user is logged in as admin
+      return (
+        <div>
+          <h1>Welcome to the Admin Dashboard</h1>
+          <Link to="/categorypage">Go to Category Page</Link>
+          <button onClick={handleLogout}>Logout</button>
+        </div>
+      );
+    } else {
+      // Render the user profile component when the user is logged in as user
+      return (
+        <div>
+          <h1>Welcome to the Profile Page</h1>
+          <button onClick={handleLogout}>Logout</button>
+        </div>
+      );
+    }
   } else {
     // Render the login form when the user is not logged in
     return (

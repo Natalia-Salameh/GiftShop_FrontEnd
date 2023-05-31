@@ -1,0 +1,33 @@
+.icon-button {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    outline: none;
+    
+
+  }
+  
+  .iconleft{
+    left : 15px;
+    position: absolute;
+    margin-top: 20px;
+    
+  }
+  
+  .search-icon {
+    width: 24px;
+    height: 24px;
+  }
+/* 
+  .icon-button:hover {
+    background: #f7f7f7;
+    transition: all 0.4s ease-in-out;
+  }
+
+  .product-card-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 5px; /* Adjust the gap between the cards as needed */
+  /* }  */
+  

@@ -20,7 +20,10 @@ import { CartProvider } from "./components/AddToCart/cartContext";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Slide } from 'react-toastify';
-
+import CategoryPage from "./pages/Admin/categoryPage";
+import ProductPageAdmin from "./pages/Admin/productPage";
+import AddNewCategory from "./pages/Admin/addCategory/add_new_categoryPage";
+import AddNewProduct from "./pages/Admin/addProduct/addProductPage";
 
 function App() {
   return (
@@ -44,6 +47,40 @@ function App() {
             <Route path="/products/id/:id" element={<ProductDetails />} />
             <Route path="/products/name/:name" element={<ProductPage />} />
              <Route exact path="/cart" component={Cart} />
+
+
+             <Route path="categorypage/Categories/:id/products" element={
+            <div>
+              {/* <Navbar /> */}
+            <ProductPageAdmin/>
+            {/* <Footer /> */}
+            </div>
+            } 
+            />
+
+            <Route path="/newcategory" element={<div>
+              {/* <Navbar /> */}
+              <AddNewCategory/>
+              {/* <Footer /> */}
+
+            </div>} />
+
+            <Route path="/newProduct" element={<div>
+              {/* <Navbar /> */}
+              <AddNewProduct/>
+              {/* <Footer /> */}
+
+            </div>} />
+
+            <Route exact path="/categorypage"  element={
+              <div>
+                {/* <Navbar /> */}
+                {/* <Home/> */}
+                <CategoryPage />
+                {/* <Footer /> */}
+              </div>
+            } />
+
             
           </Routes>
          

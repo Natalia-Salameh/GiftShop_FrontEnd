@@ -1,0 +1,232 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700');
+
+/* html {
+  display: grid;
+  min-height: 100%;
+}
+
+body {
+  display: grid;
+  background: #E0C9CB;
+  font-family: 'Lato', sans-serif;
+  text-transform: uppercase;
+} */
+
+.containercategory {
+  
+  position: relative;
+  margin-top: 20px;
+  overflow: hidden;
+  width: 1300px;
+  height: 300px;
+  background: #F5F5F5;
+  box-shadow: 5px 5px 15px rgba(186, 126, 126, 0.5);
+  border-radius: 10px;
+}
+
+.p {
+  font-size: 0.6em;
+  color: #BA7E7E;
+  letter-spacing: 1px;
+}
+
+.heading1 {
+  font-size: 1.2em;
+  color: #4E4E4E;
+  margin-top: -5px;
+}
+
+.heading2 {
+  color: #C3A1A0;
+  margin-top: -5px;
+}
+
+.img {
+  width: 350px;
+  margin-top: 10px;
+}
+
+.slideshow-buttons {
+  top: 70%;
+  display: none;
+}
+
+.dot1, .dot2, .dot3, .dot4 {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #E0C9CB;
+}
+
+.dot1 {
+  left: 22%;
+}
+
+.dot2 {
+  left: 27%;
+}
+
+.dot3 {
+  left: 32%;
+}
+
+.dot4 {
+  left: 37%;
+}
+
+.product {
+  position: absolute;
+  width: 40%;
+  height: 90%;
+  top: 10%;
+  left: 50%;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+}
+
+.grid-item {
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+}
+
+label,
+input,
+textarea {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+
+.description {
+  text-transform: none;
+  letter-spacing: 0;
+  margin-bottom: 17px;
+  color: #4E4E4E;
+  font-size: 1.0em;
+  line-height: 1.6em;
+  margin-right: 25px;
+  text-align: justify;
+  width: 300px;
+  height: 200px;
+}
+
+.btn {
+  background: #C3A1A0;
+  padding: 10px;
+  display: inline-block;
+  outline: 0;
+  border: 0;
+  margin: -1px;
+  border-radius: 2px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #F5F5F5;
+  position: absolute;
+  right: 20px;
+  bottom: 5px;
+
+ 
+}
+
+.btn2 {
+  background: #C3A1A0;
+  padding: 10px;
+  display: inline-block;
+  outline: 0;
+  border: 0;
+  margin: -1px;
+  border-radius: 2px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #F5F5F5;
+  position: absolute;
+  right: 90px;
+  bottom: 5px;
+
+ 
+}
+
+.btn:hover {
+  background: #BA7E7E;
+  transition: all 0.4s ease-in-out;
+}
+
+.add-btn {
+  width: 67%;
+}
+
+.like-btn {
+  width: 22%;
+}
+
+.size-container {
+  display: grid;
+  color: #D9AAB7;
+  grid-template-columns: repeat(auto-fill, 30px);
+  width: 60%;
+  grid-gap: 4px;
+  margin-left: 20px;
+  margin-top: 5px;
+  cursor: pointer;
+}
+
+.pick-size {
+  margin-top: 11px;
+  margin-bottom: 0;
+  margin-left: 20px;
+}
+
+.size-btn {
+  padding: 9px;
+  border: 1px solid #E0C9CB;
+  font-size: 0.7em;
+  text-align: center;
+}
+
+.size-btn:hover {
+  background: #BA7E7E;
+  color: #F5F5F5;
+  transition: all 0.4s ease-in-out;
+}
+
+.active-size {
+  background: #BA7E7E;
+  color: #F5F5F5;
+}
+/* .file-input-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.file-input-wrapper input[type="file"] {
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  cursor: pointer;
+}
+
+.file-input-wrapper label {
+  display: block;
+  width: 200px;
+  height: 200px;
+  /* background-image: url('path/to/background-image.jpg'); */
+  /* background-size: cover;
+  background-position: center;
+  border: 2px dashed #ccc;
+  text-align: center;
+  line-height: 200px;
+  font-family: Arial, sans-serif;
+  color: #999;
+  /* cursor: pointer;
+} */ 
