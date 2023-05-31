@@ -15,116 +15,43 @@ import ProductPage from "./pages/search";
 import AuthContextProvider from "./context/AuthContextProvider";
 import LoginPage from "./pages/Login";
 import SignupPage from "./pages/Login/signup";
+import Cart from "./components/AddToCart/Cart";
+import { CartProvider } from "./components/AddToCart/cartContext";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { Slide } from 'react-toastify';
+
 
 function App() {
   return (
     <div className="App">
       <AuthContextProvider>
-      <BrowserRouter>
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <div>
-                <Navbar />
-                <Home />
-                <Footer />
-              </div>
-            }
-          />
-          <Route
-            path="/candles"
-            element={
-              <div>
-                <Navbar />
-                <Candles />
-                <Footer />
-              </div>
-            }
-          />
-          <Route
-            path="/ceramic"
-            element={
-              <div>
-                <Navbar />
-                <Ceramic />
-                <Footer />
-              </div>
-            }
-          />
-          <Route
-            path="/crochet"
-            element={
-              <div>
-                <Navbar />
-                <Crochet />
-                <Footer />
-              </div>
-            }
-          />
-          <Route
-            path="/embroidery"
-            element={
-              <div>
-                <Navbar />
-                <Embroidery />
-                <Footer />
-              </div>
-            }
-          />
-          <Route
-            path="/resin"
-            element={
-              <div>
-                <Navbar />
-                <Resin />
-                <Footer />
-              </div>
-            }
-          />
-          <Route
-            path="/woodArt"
-            element={
-              <div>
-                <Navbar />
-                <WoodArt />
-                <Footer />
-              </div>
-            }
-          />
-          <Route
-            path="/cart"
-            element={
-              <div>
-                <Navbar />
-                <Footer />
-              </div>
-            }
-          />
-
-        <Route path='/products/id/:id' 
-        element={<div> 
-            <Navbar />
-            <ProductDetails/>
-            <Footer />
-          </div>} />
-
-          <Route path="/products/name/:name"
-           element={<div>
-            <Navbar />
-            <ProductPage/>
-            <Footer />
-            </div>} />
-            <Route path="/Login" element={<LoginPage />} />
-<Route path="/signup" element={<SignupPage />} />
-
-        </Routes>
-      </BrowserRouter>
+         <CartProvider>
+        <BrowserRouter>
+          <ToastContainer transition={Slide} />
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/candles" element={<Candles />} />
+            <Route path="/ceramic" element={<Ceramic />} />
+            <Route path="/crochet" element={<Crochet />} />
+            <Route path="/embroidery" element={<Embroidery />} />
+            <Route path="/resin" element={<Resin />} />
+            <Route path="/woodArt" element={<WoodArt />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/signup" element={<SignupPage />} />
+            <Route path="/products/id/:id" element={<ProductDetails />} />
+            <Route path="/products/name/:name" element={<ProductPage />} />
+             <Route exact path="/cart" component={Cart} />
+            
+          </Routes>
+         
+          <Footer />
+        </BrowserRouter>
+        </CartProvider>
       </AuthContextProvider>
-
     </div>
-
-    
   );
 }
 

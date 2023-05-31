@@ -6,7 +6,7 @@ const ProductCard = ({ productList , id}) => {
     backgroundImage: `url(${productList.image})`,
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
-    /* Add other necessary styles */
+   
   };
   
   return (

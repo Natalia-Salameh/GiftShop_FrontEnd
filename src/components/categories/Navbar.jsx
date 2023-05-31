@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { CartContext } from "../AddToCart/cartContext";
 import ProductSearchInput from "../search";
 
 const Navbar = () => {
-  // Simulating cart items count
-  const cartItemsCount = 3; // Replace with your logic to get the actual cart count
+  const { cartItems } = useContext(CartContext);
+
+  // Calculate the cart items count
+  const cartItemsCount = cartItems.length;
 
   return (
     <header className="header">
@@ -16,7 +19,8 @@ const Navbar = () => {
       <div className="header-middle">
         <div className="search-bar">
           <div className="search-input">
-            <ProductSearchInput />
+                <ProductSearchInput />
+           
           </div>
         </div>
         <nav className="navlink">

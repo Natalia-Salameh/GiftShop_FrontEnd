@@ -1,16 +1,23 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import './style.css';
+import { CartContext } from '../../components/AddToCart/cartContext';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
+
 
 const ProductDetails = () => {
   const { id } = useParams();
   const [product, setProduct] = useState({});
+  const { addToCart } = useContext(CartContext);
 
   useEffect(() => {
     fetch(`http://localhost:8080/products/id/${id}`)
       .then(res => res.json())
       .then(data => setProduct(data));
-  }, []);
+  }, [id]);
 
   const squareStyle = {
     width: '15px',
@@ -18,6 +25,13 @@ const ProductDetails = () => {
     backgroundColor: product.colour,
     display: 'inline-block',
     marginRight: '10px' // Adding some spacing between the square and text
+  };
+
+  const handleAddToCart = () => {
+    addToCart({ ...product, quantity: 1 });
+    toast.success('Product added to cart successfully!', {
+      position: toast.POSITION.TOP_RIGHT
+    });
   };
 
   return (
@@ -36,10 +50,11 @@ const ProductDetails = () => {
           <h1 className='h1'>{product.name}</h1>
           <h2 className='h2'>${product.price}</h2>
           <h2 className='h3'>
-          Product colour: <span className="square" style={squareStyle}></span>
-        </h2>          <p className="desc">{product.description}</p>
+            Product colour: <span className="square" style={squareStyle}></span>
+          </h2>
+          <p className="desc">{product.description}</p>
           <div className="buttons">
-            <button className="add">Add to Cart</button>
+            <button className="add" onClick={handleAddToCart}>Add to Cart</button>
             <button className="like"><span>♥</span></button>
           </div>
         </div>
