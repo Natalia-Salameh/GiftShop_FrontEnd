@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import ProductCard from "../../components/productCard";
 import SlideCard from "../../components/Slideshow/sliderCard";
 import "./style.css";
+import CheckoutButton from "../../components/order";
 
 const NextButton = ({ nextPage, fetchProducts }) => {
   const handleNextPage = () => {

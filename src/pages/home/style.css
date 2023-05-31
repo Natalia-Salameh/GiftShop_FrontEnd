@@ -63,6 +63,8 @@
     position: absolute;
     top: 0;
     left: 0;
+    overflow: hidden; /* Add overflow hidden to contain child elements */
+
     z-index: 1; /* Add z-index to ensure overlay appears above image */
   }
   
