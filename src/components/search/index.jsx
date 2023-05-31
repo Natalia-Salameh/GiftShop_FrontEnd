@@ -41,39 +41,34 @@
 // };
 
 // export default SearchButton;
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import './style.css'
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import "./style.scss";
 
 const ProductSearchInput = () => {
-  const [name, setName] = useState('');
+  const [name, setName] = useState("");
 
   const handleInputChange = (e) => {
     setName(e.target.value);
   };
 
   return (
+    <div>
     <form>
-      <input
+      <input className="in"
         type="text"
         value={name}
         onChange={handleInputChange}
         placeholder="Search"
       />
-      {name ? (
+      {name && (
         <Link to={`/products/name/${name}`}>
-          <button type="submit" className="icon-button">
-            <img className="search-icon" src="./images/search-icon.png" alt="Search" />
-          </button>
+          <span>Search</span>
         </Link>
-      ) : (
-        <button type="submit" className="icon-button" disabled>
-          <img className="search-icon" src="./images/search-icon.png" alt="Search" />
-        </button>
       )}
     </form>
+</div>
   );
 };
-
 
 export default ProductSearchInput;

@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import ProductSearchInput from "../search";
-import "./navbar.css";
 
 const Navbar = () => {
   // Simulating cart items count

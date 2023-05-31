@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ProductCard from "../../components/productCard";
-import ProductAnimation from "../ProductAnimation/ProductAnimation";
+import SlideCard from "../../components/Slideshow/sliderCard";
 import "./style.css";
 
 const NextButton = ({ nextPage, fetchProducts }) => {
@@ -13,7 +13,9 @@ const NextButton = ({ nextPage, fetchProducts }) => {
 
 const Home = () => {
   const [products, setProducts] = useState([]);
-  const [currentPage, setCurrentPage] = useState("http://localhost:8080/products");
+  const [currentPage, setCurrentPage] = useState(
+    "http://localhost:8080/products"
+  );
 
   const fetchProducts = (page) => {
     fetch(page)
@@ -32,13 +34,12 @@ const Home = () => {
 
   return (
     <div>
-      <div className="productAnimation">
-      <ProductAnimation /> {/* Add the ProductAnimation component here */}
-      </div>
+      <section className="sliderr">
+        <SlideCard />
+      </section>
       <div className="home-div">
-        {/* Filter */}
         <div className="filter-div"></div>
-        {/* Product List */}
+        <h2>Products</h2>
         <div className="product-list">
           {products.map((product) => {
             return <ProductCard key={product.id} productList={product} />;
@@ -48,9 +49,18 @@ const Home = () => {
         <div className="filter-div"></div>
         {/* Button Container */}
         <div className="button-container">
-          <NextButton nextPage="http://localhost:8080/products?page=0" fetchProducts={fetchProducts} />
-          <NextButton nextPage="http://localhost:8080/products?page=1" fetchProducts={fetchProducts} />
-          <NextButton nextPage="http://localhost:8080/products?page=2" fetchProducts={fetchProducts} />
+          <NextButton
+            nextPage="http://localhost:8080/products?page=0"
+            fetchProducts={fetchProducts}
+          />
+          <NextButton
+            nextPage="http://localhost:8080/products?page=1"
+            fetchProducts={fetchProducts}
+          />
+          <NextButton
+            nextPage="http://localhost:8080/products?page=2"
+            fetchProducts={fetchProducts}
+          />
         </div>
         <br />
       </div>

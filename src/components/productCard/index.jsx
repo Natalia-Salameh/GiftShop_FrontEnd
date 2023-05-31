@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-const ProductCard = ({ productList }) => {
+const ProductCard = ({ productList , id}) => {
 
   const styles = {
     backgroundImage: `url(${productList.image})`,
@@ -8,6 +8,7 @@ const ProductCard = ({ productList }) => {
     backgroundSize: 'cover',
     /* Add other necessary styles */
   };
+  
   return (
     <Link to={`/products/id/${productList.id}`}>
 <div className="container" style={styles}>
@@ -20,7 +21,7 @@ const ProductCard = ({ productList }) => {
             </p>
         <div className="cart">
           <i className="fas fa-shopping-cart"></i>
-          <span>Add to Cart</span>
+          <button>Add to Cart</button>
         </div>
       </div>
     </div>
