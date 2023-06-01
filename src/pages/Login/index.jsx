@@ -65,17 +65,25 @@ const LoginPage = () => {
       .then(data => {
         // Handle the response data
         console.log(data);
-        // Perform further actions with the JWT token and user details
+      
+        // Store the customer details in local storage
+        localStorage.setItem('customerId', data.id);
+        console.log(parseInt(localStorage.getItem('customerId'), 10))
+        localStorage.setItem('customerEmail', data.email);
+        localStorage.setItem('customerUsername', data.username);
+        localStorage.setItem('password', data.password);
 
+      
         // Set the login status and user role in local storage
         localStorage.setItem('isLoggedIn', true);
         localStorage.setItem('userRole', data.roles[0]);
         setIsLoggedIn(true);
         setUserRole(data.roles[0]);
-
+      
         // Go back to the previous page after successful login
         window.history.back();
       })
+      
       .catch(error => {
         // Handle any errors
         console.error(error);
