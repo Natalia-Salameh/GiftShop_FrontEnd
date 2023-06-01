@@ -35,6 +35,7 @@ const Home = () => {
 
   return (
     <div>
+      <CheckoutButton/>
       <section className="sliderr">
         <SlideCard />
       </section>

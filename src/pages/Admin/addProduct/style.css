@@ -32,6 +32,8 @@
   
   input[type="file"],
   input[type="text"],
+  input[type="number"],
+
   textarea {
     width: 60%;
     padding: 8px;

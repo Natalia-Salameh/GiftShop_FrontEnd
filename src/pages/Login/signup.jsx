@@ -8,13 +8,13 @@ const SignupPage = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [userRole, setUserRole] = useState("");
+  const [userRole, setUserRole] = useState([]);
 
   const handleLogout = () => {
     localStorage.removeItem("isLoggedIn");
     localStorage.removeItem("userRole");
     setIsLoggedIn(false);
-    setUserRole("");
+    setUserRole([]);
   };
 
   const handleSubmit = (e) => {
@@ -33,9 +33,8 @@ const SignupPage = () => {
     const signupData = {
       username: username,
       email: email,
-      role: ["ROLE_USER"],// Set the desired role here
+      role: userRole.length > 0 ? userRole : ["ROLE_USER"],
       password: password
-     
     };
 
     fetch("http://localhost:8080/api/auth/signup", {
@@ -44,7 +43,10 @@ const SignupPage = () => {
         "Content-Type": "application/json"
       },
       body: JSON.stringify(signupData)
+
     })
+    // console.log( JSON.stringify(signupData))
+
       .then(response => {
         if (response.ok) {
           return response.json();
@@ -54,9 +56,9 @@ const SignupPage = () => {
       })
       .then(data => {
         localStorage.setItem("isLoggedIn", true);
-        localStorage.setItem("userRole", data.roles[0]);
+        localStorage.setItem("userRole", JSON.stringify(data.roles));
         setIsLoggedIn(true);
-        setUserRole(data.roles[0]);
+        setUserRole(data.roles);
         // Redirect to the main page after successful signup
         window.location.href = "/"; // Replace "/" with the desired main page route
       })
@@ -65,6 +67,8 @@ const SignupPage = () => {
         setError(error.message);
       });
   };
+
+  // Rest of the code...
 
   if (isLoggedIn) {
     return (

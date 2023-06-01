@@ -86,13 +86,13 @@ const AddNewProduct = () => {
           <input type="text" name="color" id="color" />
 
           <label htmlFor="price">Price</label>
-          <input type="text" name="price" id="price" />
+          <input type="number" name="price" id="price" />
 
           <label htmlFor="size">Size</label>
           <input type="text" name="size" id="size" />
 
           <label htmlFor="quantity">Quantity</label>
-          <input type="text" name="quantity" id="quantity" />
+          <input type="number" name="quantity" id="quantity" />
 
           <label htmlFor="category">Category</label>
           <input type="text" name="category" id="category" />

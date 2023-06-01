@@ -112,7 +112,7 @@ const AdminProductCard = ({ productList }) => {
               <label>
                 Price:
                 <input
-                  type="text"
+                  type="number"
                   name="price"
                   value={price}
                   onChange={e => setPrice(e.target.value)}
