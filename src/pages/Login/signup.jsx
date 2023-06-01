@@ -1,61 +1,90 @@
 import React, { useState } from "react";
-import './signup.css';
+import { Link } from "react-router-dom";
 
-const SignupPage = ({ onClose }) => {
+const SignupPage = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [error, setError] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userRole, setUserRole] = useState("");
+
+  const handleLogout = () => {
+    localStorage.removeItem("isLoggedIn");
+    localStorage.removeItem("userRole");
+    setIsLoggedIn(false);
+    setUserRole("");
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("user");
 
-    const signupRequest = {
+    if (!username || !email || !password || !confirmPassword) {
+      setError("Please fill in all fields");
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      setError("Passwords do not match");
+      return;
+    }
+
+    const signupData = {
       username: username,
       email: email,
-      password: password,
+      role: ["ROLE_USER"],// Set the desired role here
+      password: password
+     
     };
 
-    fetch("/api/auth/signup", {
+    fetch("http://localhost:8080/api/auth/signup", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "application/json"
       },
-      body: JSON.stringify(signupRequest),
+      body: JSON.stringify(signupData)
     })
-      .then((response) => response.json())
-      .then((data) => {
-        // Handle the response data
-        console.log(data);
-        // Perform further actions with the signed-up user details
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error("Signup failed. Please try again.");
+        }
       })
-      .catch((error) => {
-        // Handle any errors
+      .then(data => {
+        localStorage.setItem("isLoggedIn", true);
+        localStorage.setItem("userRole", data.roles[0]);
+        setIsLoggedIn(true);
+        setUserRole(data.roles[0]);
+        // Redirect to the main page after successful signup
+        window.location.href = "/"; // Replace "/" with the desired main page route
+      })
+      .catch(error => {
         console.error(error);
+        setError(error.message);
       });
   };
 
-  const handleModalClose = () => {
-    // Call the onClose function passed from the parent component
-    if (typeof onClose === "function") {
-      onClose();
-    }
-  };
-
-  return (
-    <div className="modal-overlay">
-      <div className="modal-content">
-        <span className="modal-close" onClick={handleModalClose}>
-          <img src="./images/download3.png" alt="Close" />
-        </span>
-        <h2>Sign Up</h2>
-        <form className="signup-form" onSubmit={handleSubmit}>
+  if (isLoggedIn) {
+    return (
+      <div>
+        <h1>Welcome to the Profile Page</h1>
+        <button onClick={handleLogout}>Logout</button>
+      </div>
+    );
+  } else {
+    return (
+      <div>
+        <h1>Signup</h1>
+        {error && <p className="error-message">{error}</p>}
+        <form onSubmit={handleSubmit}>
           <label>
             Username:
             <input
               type="text"
               value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              onChange={e => setUsername(e.target.value)}
             />
           </label>
           <br />
@@ -64,7 +93,7 @@ const SignupPage = ({ onClose }) => {
             <input
               type="email"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={e => setEmail(e.target.value)}
             />
           </label>
           <br />
@@ -73,15 +102,27 @@ const SignupPage = ({ onClose }) => {
             <input
               type="password"
               value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={e => setPassword(e.target.value)}
             />
           </label>
           <br />
-          <button type="submit">Sign Up</button>
+          <label>
+            Confirm Password:
+            <input
+              type="password"
+              value={confirmPassword}
+              onChange={e => setConfirmPassword(e.target.value)}
+            />
+          </label>
+          <br />
+          <button type="submit">Signup</button>
         </form>
+        <p>
+          Already have an account? <Link to="/login">Login</Link>
+        </p>
       </div>
-    </div>
-  );
+    );
+  }
 };
 
 export default SignupPage;
