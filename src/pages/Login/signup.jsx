@@ -43,10 +43,7 @@ const SignupPage = () => {
         "Content-Type": "application/json"
       },
       body: JSON.stringify(signupData)
-
     })
-    // console.log( JSON.stringify(signupData))
-
       .then(response => {
         if (response.ok) {
           return response.json();
@@ -68,7 +65,33 @@ const SignupPage = () => {
       });
   };
 
-  // Rest of the code...
+  const handleUsernameChange = (e) => {
+    setUsername(e.target.value);
+    if (e.target.value.length < 3) {
+      setError("Username should be at least 3 characters");
+    } else {
+      setError("");
+    }
+  };
+
+  const handleEmailChange = (e) => {
+  const emailValue = e.target.value;
+  setEmail(emailValue);
+
+  // Email validation regex pattern
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  if (!emailValue) {
+    setError("Email is required");
+  } else if (!emailValue.includes("@")) {
+    setError("Email should contain @ symbol");
+  } else if (!emailRegex.test(emailValue)) {
+    setError("Invalid email format");
+  } else {
+    setError("");
+  }
+};
+
 
   if (isLoggedIn) {
     return (
@@ -88,7 +111,7 @@ const SignupPage = () => {
             <input
               type="text"
               value={username}
-              onChange={e => setUsername(e.target.value)}
+              onChange={handleUsernameChange}
             />
           </label>
           <br />
@@ -97,7 +120,7 @@ const SignupPage = () => {
             <input
               type="email"
               value={email}
-              onChange={e => setEmail(e.target.value)}
+              onChange={handleEmailChange}
             />
           </label>
           <br />
