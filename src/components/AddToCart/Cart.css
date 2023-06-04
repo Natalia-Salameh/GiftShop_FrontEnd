@@ -1,16 +1,10 @@
-.cart {
+.cart .empty-cart {
     height: 80vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     text-align: center;
-  }
-  
-  .cart img {
-    width: 100px;
-    height: 100px;
-    margin-bottom: 50px;
   }
   
   h3 {
@@ -19,63 +13,63 @@
     font-weight: 400;
   }
   
-  
-.cart-item {
-    display: flex;
+  .cart-item {
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
     align-items: center;
     padding: 10px;
-    border-bottom: 1px solid #ccc;
-}
-
-.item-details {
+    border-bottom: 1px solid black;
+    width: 700px;
+  }
+  
+  .item-details {
     display: flex;
     align-items: center;
-    flex-grow: 1;
-}
-
-.item-image {
+  }
+  
+  .item-image {
     width: 100px;
     height: 100px;
     object-fit: cover;
     margin-right: 10px;
-}
-
-.item-info {
+  }
+  
+  .item-info {
     flex-grow: 1;
-}
-
-.item-name {
+  }
+  
+  .item-name {
     font-size: 16px;
     font-weight: bold;
-}
-
-.item-description {
+  }
+  
+  .item-description {
     font-size: 14px;
-    color: #888;
-}
-
-.item-controls {
+    color: black;
+  }
+  
+  .item-controls {
     display: flex;
     align-items: center;
-}
-
-.item-controls button {
+  }
+  
+  .item-controls button {
     padding: 5px 10px;
     font-size: 14px;
-    background-color: #ccc;
+    background-color: black;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     margin-right: 5px;
-}
-
-.item-quantity {
+  }
+  
+  .item-quantity {
     font-size: 16px;
     font-weight: bold;
     margin: 0 5px;
-}
-
-.remove-button {
+  }
+  
+  .remove-button {
     padding: 5px 10px;
     font-size: 14px;
     background-color: #ff5252;
@@ -83,4 +77,32 @@
     border-radius: 4px;
     color: #fff;
     cursor: pointer;
-}
+  }
+  
+  .remove-button:hover {
+    background-color: #ff5252;
+  }
+  
+  .cart img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 50px;
+  }
+  
+  .checkout-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+  }
+  
+  /* Media Query for Responsive Layout */
+  @media (max-width: 768px) {
+    .cart-item {
+      width: 100%;
+    }
+    
+    .checkout-container {
+      justify-content: center;
+    }
+  }
+  

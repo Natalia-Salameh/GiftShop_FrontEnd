@@ -1,36 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:400,700');
 
-/* Variables */
-:root {
-  --font: 'Lato', sans-serif;
-  --white: #F5F5F5;
-  --light: #E0C9CB;
-  --tan: #C3A1A0;
-  --pink: #D9AAB7;
-  --rose: #BA7E7E;
-  --dark: #4E4E4E;
-}
-
-/* Center container in the middle */
-/* html {
-  display: grid;
-  min-height: 100%;
-} */
-
-/* body {
-  display: grid;
-  background: var(--light);
-  font-family: var(--font), sans-serif;
-  text-transform: uppercase;
-} */
-
 .contai {
   position: relative;
   overflow: hidden;
   width: 100%; /* Updated */
   height: 500px; /* Updated */
-  background: var(--white);
-  box-shadow: 5px 5px 15px rgba(var(--rose), 0.5);
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -56,9 +30,6 @@ p {
   color: var(--dark);
   font-size: 1.0em;
   margin-top: -5px;
-}
-
-.img {
 }
 
 .slideshow-buttons {
@@ -93,12 +64,12 @@ p {
   left: 37%;
 }
 
-.product {
+.productdetails {
   position: absolute;
   width: 40%;
   height: 500px;
   top: 20%;
-  left: 55%;
+  left: 40%;
 }
 
 .desc {
@@ -134,13 +105,11 @@ button:hover {
 
 .add {
   width: 67%;
-  background-color: #C3A1A0;
 }
 
 .like {
   margin-left: 5px;
   width: 22%;
-  background-color: #C3A1A0;
   font-size: 1.0em;
 }
 
@@ -204,3 +173,45 @@ button:hover {
   flex: 1;
 }
 
+
+@media (max-width: 768px) {
+  /* Styles for screens up to 768px wide */
+  .contai {
+    height: auto;
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .productdetails {
+    position: static;
+    width: 100%;
+    max-width: none;
+    height: auto;
+    margin-top: 20px;
+  }
+
+  .desc {
+    margin-right: 0;
+  }
+
+  .sizes {
+    grid-template-columns: repeat(auto-fill, minmax(20px, 1fr));
+    margin-left: 0;
+    margin-top: 10px;
+  }
+
+  .pick {
+    margin-left: 0;
+  }
+
+  .thumbnail-container {
+    margin: 10px 0;
+    flex-direction:row;
+  }
+
+  .thumbnail {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 5px;
+  }
+}

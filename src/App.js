@@ -19,7 +19,6 @@ import { Slide } from "react-toastify";
 import Navbar from "./common/navbar/Navbar";
 import Header from "./common/header/header";
 import ProductPage from "./common/search/search";
-import AuthenticationPage from "./pages/Login/authentication";
 import LoginPage from "./pages/Login/login";
 import SignupPage from "./pages/Login/signup";
 import CategoryPage from "./pages/Admin/categoryPage";

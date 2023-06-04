@@ -2,6 +2,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  /* position: fixed; */
+
 }
 
 .sliderr {
@@ -19,20 +21,25 @@
 
  .product-list {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 10px;
   padding-left: 50px;
   padding-right: 50px;
   align-items: center;
   justify-items: center;
 }
-
+.divp{
+  width: 100%;
+}
 .headline {
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 20px;
   color: #333;
-  text-align: left;
+  /* position: absolute; */
+
+  /* text-align: left; */
+  left : 0;
 }
 
 @media (max-width: 1200px) {

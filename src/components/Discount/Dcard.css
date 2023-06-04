@@ -1,0 +1,40 @@
+.dcard {
+    width: auto;
+   
+    margin: 10 px;
+    padding: 30px;
+}
+
+.slider {
+    width: 800px;
+}
+
+.slide {
+    width: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.slide img {
+    width: 200px;
+    height: 200px;
+    
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.slide .content {
+    padding: 10px;
+}
+
+.slide h3 {
+    margin-top: 0;
+    font-size: 18px;
+}
+
+.slide p {
+    margin-bottom: 5px;
+    font-size: 14px;
+}

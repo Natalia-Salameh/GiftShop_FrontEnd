@@ -71,7 +71,7 @@ const CategoryCard = ({ categoryList }) => {
     <>
       {/* <Link to={`Categories/${id}/products`}> */}
       <div className="containercategory">
-        <input
+        <input className='input'
           type="file"
           accept=".jpg,.jpeg,.png,.gif"
           style={styles}
@@ -84,13 +84,13 @@ const CategoryCard = ({ categoryList }) => {
           <div className="four"></div>
         </div> */}
         <div className="product">
-          <input
+          <input className='input'
             type="text"
             name="categoryName"
             value={categoryName}
             onChange={(e) => setCategoryName(e.target.value)}
           /><br />
-          <textarea
+          <textarea 
             className="description"
             name="description"
             value={description}

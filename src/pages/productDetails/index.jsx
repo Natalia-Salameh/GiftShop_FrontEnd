@@ -71,7 +71,7 @@ const ProductDetails = () => {
             </TransformComponent>
           </TransformWrapper>
         </div>
-        <div className="product">
+        <div className="productdetails">
           <h1 className="h1">{product.name}</h1>
           <h2 className="h2">${product.price}</h2>
           <h2 className="h3">

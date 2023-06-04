@@ -27,7 +27,7 @@ const ProductPageAdmin = () => {
           </button>
         </Link>
         </div>
-      <div className="product-list">
+      <div>
         {products.map((product) => (
           <div className="product-card-container" key={product.id}>
         <AdminProductCard key={product.id} productList={product} />

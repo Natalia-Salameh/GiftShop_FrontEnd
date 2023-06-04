@@ -88,7 +88,7 @@ const AdminProductCard = ({ productList }) => {
             <div className="grid-item">
               <label>
                 Name:
-                <input
+                <input className='input'
                   type="text"
                   name="name"
                   value={name}
@@ -100,7 +100,7 @@ const AdminProductCard = ({ productList }) => {
             <div className="grid-item">
               <label>
                 Colour:
-                <input
+                <input className='input'
                   type="text"
                   name="colour"
                   value={colour}
@@ -111,7 +111,7 @@ const AdminProductCard = ({ productList }) => {
             <div className="grid-item">
               <label>
                 Price:
-                <input
+                <input className='input'
                   type="number"
                   name="price"
                   value={price}
@@ -122,7 +122,7 @@ const AdminProductCard = ({ productList }) => {
             <div className="grid-item">
               <label>
                 Size:
-                <input
+                <input className='input'
                   type="text"
                   name="size"
                   value={size}
@@ -133,7 +133,7 @@ const AdminProductCard = ({ productList }) => {
             <div className="grid-item">
               <label>
                 Stock:
-                <input
+                <input className='input'
                   type="text"
                   name="stock"
                   value={productStock}

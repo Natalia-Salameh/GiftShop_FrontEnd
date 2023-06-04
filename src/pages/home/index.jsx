@@ -3,8 +3,8 @@ import ProductCard from "../../components/productCard";
 import SlideCard from "../../components/Slideshow/sliderCard";
 import "./style.css";
 // import CheckoutButton from "../../components/order";
-import Pagination from '@mui/material/Pagination';
-
+import Pagination from "@mui/material/Pagination";
+import Discount from "../../components/Discount/discount";
 const NextButton = ({ nextPage, fetchProducts }) => {
   const handleNextPage = () => {
     fetchProducts(nextPage);
@@ -39,20 +39,21 @@ const Home = () => {
 
   return (
     <div>
-      {/* <CheckoutButton /> */}
       <section className="sliderr">
         <SlideCard />
       </section>
+      <Discount/>
       <div className="home-div">
-        <div className="filter-div"></div>
-        <h2 className="headline">Products</h2>
+        <div className="divp">
+          {" "}
+          <h2 className="headline">Products</h2>
+        </div>{" "}
         <div className="product-list">
           {products.map((product) => (
             <ProductCard key={product.id} productList={product} />
           ))}
         </div>
         <br />
-        <div className="filter-div"></div>
         {/* <div className="button-container">
           <NextButton
             nextPage={1}
@@ -67,11 +68,7 @@ const Home = () => {
             fetchProducts={fetchProducts}
           />
         </div> */}
-        <Pagination
-          count={3}
-          page={currentPage}
-          onChange={handlePageChange}
-        />
+        <Pagination count={3} page={currentPage} onChange={handlePageChange} />
         <br />
       </div>
     </div>

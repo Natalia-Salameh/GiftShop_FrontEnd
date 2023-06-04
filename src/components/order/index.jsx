@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import "./style.css"; // Import the CSS file
 
 const CheckoutButton = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -11,9 +12,9 @@ const CheckoutButton = () => {
 
   const renderButton = () => {
     if (isLoggedIn) {
-      return <Link to="/checkout">Checkout Order</Link>;
+      return <Link to="/checkout" className="checkout-link">Checkout Order</Link>;
     } else {
-      return <Link to="/login">Login to Checkout</Link>;
+      return <Link to="/login" className="checkout-link">Checkout</Link>;
     }
   };
 

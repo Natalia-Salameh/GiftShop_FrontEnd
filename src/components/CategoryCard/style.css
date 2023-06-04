@@ -1,16 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:400,700');
 
-/* html {
-  display: grid;
-  min-height: 100%;
-}
-
-body {
-  display: grid;
-  background: #E0C9CB;
-  font-family: 'Lato', sans-serif;
-  text-transform: uppercase;
-} */
 
 .containercategory {
   position: relative;
@@ -19,13 +8,13 @@ body {
   width: 1300px;
   height: 300px;
   background: #F5F5F5;
-  box-shadow: 5px 5px 15px rgba(186, 126, 126, 0.5);
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
   border-radius: 10px;
 }
 
 .p {
   font-size: 0.6em;
-  color: #BA7E7E;
+  color: #000000;
   letter-spacing: 1px;
 }
 
@@ -36,7 +25,7 @@ body {
 }
 
 .heading2 {
-  color: #C3A1A0;
+  color: #ae8785;
   margin-top: -5px;
 }
 
@@ -55,7 +44,7 @@ body {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: #E0C9CB;
+  background: #000000;
 }
 
 .dot1 {
@@ -85,6 +74,7 @@ body {
 .description {
   text-transform: none;
   letter-spacing: 0;
+  margin-top: 10px;
   margin-bottom: 17px;
   color: #4E4E4E;
   font-size: 1.0em;
@@ -96,7 +86,7 @@ body {
 }
 
 .btn {
-  background: #C3A1A0;
+  background: #000000;
   padding: 10px;
   display: inline-block;
   outline: 0;
@@ -114,7 +104,7 @@ body {
 }
 
 .btn2 {
-  background: #C3A1A0;
+  background: #000000;
   padding: 10px;
   display: inline-block;
   outline: 0;
@@ -132,7 +122,7 @@ body {
 }
 
 .btn:hover {
-  background: #BA7E7E;
+  background: #000000;
   transition: all 0.4s ease-in-out;
 }
 
@@ -146,7 +136,6 @@ body {
 
 .size-container {
   display: grid;
-  color: #D9AAB7;
   grid-template-columns: repeat(auto-fill, 30px);
   width: 60%;
   grid-gap: 4px;
@@ -169,41 +158,12 @@ body {
 }
 
 .size-btn:hover {
-  background: #BA7E7E;
+  background: #000000;
   color: #F5F5F5;
   transition: all 0.4s ease-in-out;
 }
 
 .active-size {
-  background: #BA7E7E;
+  background: #000000;
   color: #F5F5F5;
 }
-/* .file-input-wrapper {
-  position: relative;
-  display: inline-block;
-}
-
-.file-input-wrapper input[type="file"] {
-  opacity: 0;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  left: 0;
-  top: 0;
-  cursor: pointer;
-}
-
-.file-input-wrapper label {
-  display: block;
-  width: 200px;
-  height: 200px;
-  /* background-image: url('path/to/background-image.jpg'); */
-  /* background-size: cover;
-  background-position: center;
-  border: 2px dashed #ccc;
-  text-align: center;
-  line-height: 200px;
-  font-family: Arial, sans-serif;
-  color: #999;
-  /* cursor: pointer;
-} */ 

@@ -3,8 +3,10 @@
   justify-content: center;
   align-items: center;
   height: 80vh;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+  width: 500px;
+  margin: 0 auto;
 }
-
 
 .login-form h2 {
   font-size: 20px;
@@ -29,6 +31,7 @@
   /* Add a bottom line */
   border-radius: 0;
   box-sizing: border-box;
+  
 }
 
 .login-form button {
@@ -105,6 +108,12 @@
   border-radius: 5px;
   text-decoration: none;
   font-size:larger;
+}
+
+.admin-dashboard h1 {
+  color: #000;
+  text-decoration: none;
+  font-size:28px;
 }
 
 .admin-dashboard a:hover {

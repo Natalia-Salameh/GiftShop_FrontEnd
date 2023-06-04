@@ -2,8 +2,7 @@ import React, { useContext } from "react";
 import ProductSearchInput from "../search";
 import { Link } from "react-router-dom";
 import { CartContext } from "../../components/AddToCart/cartContext";
-import "./header.css";
-import Badge from '@mui/material/Badge';
+import "./Header.css";
 
 const Header = () => {
   const { cartItems } = useContext(CartContext);
