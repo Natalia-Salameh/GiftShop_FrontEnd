@@ -26,14 +26,16 @@
 
 .contai {
   position: relative;
-  margin: auto;
   overflow: hidden;
   width: 100%; /* Updated */
   height: 500px; /* Updated */
   background: var(--white);
   box-shadow: 5px 5px 15px rgba(var(--rose), 0.5);
   border-radius: 10px;
+  display: flex;
+  align-items: center;
 }
+
 p {
   font-size: 0.6em;
   color: var(--rose);
@@ -57,11 +59,6 @@ p {
 }
 
 .img {
-  width: 500px;
-  margin-top: 47px;
-  margin-left: 100px;
-  background: none;
-
 }
 
 .slideshow-buttons {
@@ -145,8 +142,6 @@ button:hover {
   width: 22%;
   background-color: #C3A1A0;
   font-size: 1.0em;
-
-
 }
 
 .sizes {
@@ -186,25 +181,26 @@ button:hover {
   background: var(--rose);
   color: var(--white);
 }
-/* 
-footer {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  font-size: 0.8em;
-  text-transform: uppercase;
-  padding: 10px;
-} */
 
-/* footer p {
-  letter-spacing: 3px;
+.thumbnail-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 50px;
 }
 
-footer a {
-  color: #ffffff;
-  text-decoration: none;
+.thumbnail {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 10px;
+  cursor: pointer;
 }
 
-footer a:hover {
-  color: #7d7d7d;
-} */
+.thumbnail.active {
+  border: 2px solid black;
+}
+
+.product {
+  flex: 1;
+}
+
