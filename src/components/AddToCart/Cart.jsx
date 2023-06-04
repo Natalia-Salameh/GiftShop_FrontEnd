@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { CartContext } from "./cartContext";
-import './Cart.css'; // Import the CSS file for styling
+import "./Cart.css";
+import CheckoutButton from "../../components/order";
 
 const Cart = () => {
   const { cartItems, removeFromCart, incrementQuantity, decrementQuantity } =
@@ -9,7 +10,10 @@ const Cart = () => {
   return (
     <div className="cart">
       {cartItems.length === 0 ? (
-      <h3>Your Cart Is Empty.</h3>
+        <div>
+          <img src="./images/shopping-bag.png" />
+          <h3>Your Shopping bag is empty.</h3>
+        </div>
       ) : (
         <ul>
           {cartItems.map((item) => (
@@ -26,9 +30,15 @@ const Cart = () => {
                 <span className="item-quantity">{item.quantity}</span>
                 <button onClick={() => incrementQuantity(item.id)}>+</button>
               </div>
-              <button className="remove-button" onClick={() => removeFromCart(item.id)}>Remove</button>
+              <button
+                className="remove-button"
+                onClick={() => removeFromCart(item.id)}
+              >
+                Remove
+              </button>
             </li>
           ))}
+          <CheckoutButton />
         </ul>
       )}
     </div>

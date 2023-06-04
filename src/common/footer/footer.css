@@ -1,66 +1,69 @@
 /* footer.css */
 footer {
-    background-color: #f8f8f8;
-    padding: 40px 0;
-  }
-  
+  padding: 40px 0;
+  border-top: 1px solid #333;
+}
+
+.x {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.box {
+  color: #333;
+}
+
+.box img {
+  max-width: 150px;
+  height: auto;
+  margin-bottom: 20px;;
+}
+
+h2 {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul li {
+  margin-bottom: 5px;
+}
+
+ul li:last-child {
+  margin-bottom: 0;
+}
+
+.copy-right {
+  text-align: center;
+  margin-top: 20px;
+  color: #999;
+}
+
+@media (max-width: 768px) {
   .x {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 40px;
+    grid-template-columns: 1fr;
+    gap: 10px;
   }
-  
+
   .box {
-    color: #333;
+    text-align: center;
+    margin-bottom: 40px;
   }
   
   .box img {
-    max-width: 150px;
-    height: auto;
+    max-width: 100px;
   }
   
   h2 {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 10px;
+    font-size: 12px;
   }
-  
-  ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  ul li {
-    margin-bottom: 5px;
-  }
-  
-  ul li:last-child {
-    margin-bottom: 0;
-  }
-  
-  .copy-right {
-    text-align: center;
-    margin-top: 20px;
-    color: #999;
-  }
-  
-  .team-members {
-    margin-right: 100px;
-    text-align: center;
-  }
-
-  /* Responsive */
-  @media (max-width: 768px) {
-    .container {
-      grid-template-columns: 1fr;
-    }
-  
-    .box {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-  }
-  
+}

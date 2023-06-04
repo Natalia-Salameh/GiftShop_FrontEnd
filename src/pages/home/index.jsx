@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import ProductCard from "../../components/productCard";
 import SlideCard from "../../components/Slideshow/sliderCard";
 import "./style.css";
+// import CheckoutButton from "../../components/order";
+import Pagination from '@mui/material/Pagination';
 
 const NextButton = ({ nextPage, fetchProducts }) => {
   const handleNextPage = () => {
@@ -13,12 +15,11 @@ const NextButton = ({ nextPage, fetchProducts }) => {
 
 const Home = () => {
   const [products, setProducts] = useState([]);
-  const [currentPage, setCurrentPage] = useState(
-    "http://localhost:8080/products"
-  );
+  const [currentPage, setCurrentPage] = useState(0);
 
   const fetchProducts = (page) => {
-    fetch(page)
+    const nextPage = `http://localhost:8080/products?page=${page}`;
+    fetch(nextPage)
       .then((res) => res.json())
       .then((data) => {
         const productList = data._embedded.productList;
@@ -32,36 +33,45 @@ const Home = () => {
     fetchProducts(currentPage);
   }, [currentPage]);
 
+  const handlePageChange = (event, value) => {
+    fetchProducts(value);
+  };
+
   return (
     <div>
+      {/* <CheckoutButton /> */}
       <section className="sliderr">
         <SlideCard />
       </section>
       <div className="home-div">
         <div className="filter-div"></div>
-        <h2>Products</h2>
+        <h2 className="headline">Products</h2>
         <div className="product-list">
-          {products.map((product) => {
-            return <ProductCard key={product.id} productList={product} />;
-          })}
+          {products.map((product) => (
+            <ProductCard key={product.id} productList={product} />
+          ))}
         </div>
         <br />
         <div className="filter-div"></div>
-        {/* Button Container */}
-        <div className="button-container">
+        {/* <div className="button-container">
           <NextButton
-            nextPage="http://localhost:8080/products?page=0"
+            nextPage={1}
             fetchProducts={fetchProducts}
           />
           <NextButton
-            nextPage="http://localhost:8080/products?page=1"
+            nextPage={2}
             fetchProducts={fetchProducts}
           />
           <NextButton
-            nextPage="http://localhost:8080/products?page=2"
+            nextPage={3}
             fetchProducts={fetchProducts}
           />
-        </div>
+        </div> */}
+        <Pagination
+          count={3}
+          page={currentPage}
+          onChange={handlePageChange}
+        />
         <br />
       </div>
     </div>

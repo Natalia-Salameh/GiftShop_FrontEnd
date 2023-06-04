@@ -1,77 +1,10 @@
-.header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: white;
-  padding: 10px;
-}
-
-.logo img {
-  width: 200px;
-  height: 100px;
-}
-
-.navlink {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
-
-.navlink ul {
-  list-style: none;
-  display: flex;
-  gap: 10px;
-  margin-top: 30px;
-}
-
-.navlink ul li {
-  margin-right: 30px;
-}
-
-.navlink a {
-  text-decoration: none;
-  color: black;
-}
-
-.search-bar {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px;
-}
-
-.search-input {
-  display: flex;
-  align-items: center;
-  background-color: #ffffff;
-  border-radius: 5px;
-  padding: 5px;
-}
-
-.search-input input[type="text"] {
-  padding: 5px;
-  border-radius: 1px;
-  margin-right: 5px;
-  border: none;
-}
-
-.search-icon {
-  width: 20px;
-  height: 20px;
-}
-
-.cart {
-  display: flex;
-  align-items: center;
-  margin-top: 5px;
-}
-
-.cart img {
-  width: 20px;
-  height: 20px;
-  margin-right: 5px;
-}
-
-.cart span {
-  font-weight: bold;
-}
+.App {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .Content {
+    flex: 1;
+    padding: 20px;
+  }

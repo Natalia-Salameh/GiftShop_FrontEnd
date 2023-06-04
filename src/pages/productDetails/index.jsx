@@ -4,8 +4,7 @@ import './style.css';
 import { CartContext } from '../../components/AddToCart/cartContext';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
-
+import Zoom from '../../components/zoom/zoom';
 
 
 const ProductDetails = () => {
@@ -26,16 +25,19 @@ const ProductDetails = () => {
     display: 'inline-block',
     marginRight: '10px' // Adding some spacing between the square and text
   };
-
   const handleAddToCart = () => {
     addToCart({ ...product, quantity: 1 });
     toast.success('Product added to cart successfully!', {
-      position: toast.POSITION.TOP_RIGHT
+      position: toast.POSITION.TOP_RIGHT,
+      hideProgressBar: true,
+      autoClose: 2000,
+      icon:false
     });
   };
 
   return (
     <>
+    {/* <Zoom/> */}
       <div className="contai">
         <div className="images">
           <img className='img' src={product.image} alt={product.name} />

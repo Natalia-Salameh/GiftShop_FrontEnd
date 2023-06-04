@@ -1,87 +1,158 @@
 import React, { useState } from "react";
-import './signup.css';
+import { Link } from "react-router-dom";
+import "./signup.css";
 
-const SignupPage = ({ onClose }) => {
+const SignupPage = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [error, setError] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userRole, setUserRole] = useState([]);
+
+  const handleLogout = () => {
+    localStorage.removeItem("isLoggedIn");
+    localStorage.removeItem("userRole");
+    setIsLoggedIn(false);
+    setUserRole([]);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("user");
 
-    const signupRequest = {
+    if (!username || !email || !password || !confirmPassword) {
+      setError("Please fill in all fields");
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      setError("Passwords do not match");
+      return;
+    }
+
+    const signupData = {
       username: username,
       email: email,
+      role: userRole.length > 0 ? userRole : ["ROLE_USER"],
       password: password,
     };
 
-    fetch("/api/auth/signup", {
+    fetch("http://localhost:8080/api/auth/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(signupRequest),
+      body: JSON.stringify(signupData),
     })
-      .then((response) => response.json())
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error("This account already exists");
+        }
+      })
       .then((data) => {
-        // Handle the response data
-        console.log(data);
-        // Perform further actions with the signed-up user details
+        localStorage.setItem("isLoggedIn", true);
+        localStorage.setItem("userRole", JSON.stringify(data.roles));
+        setIsLoggedIn(true);
+        setUserRole(data.roles);
+        // Redirect to the main page after successful signup
+        window.location.href = "/"; // Replace "/" with the desired main page route
       })
       .catch((error) => {
-        // Handle any errors
         console.error(error);
+        setError(error.message);
       });
   };
 
-  const handleModalClose = () => {
-    // Call the onClose function passed from the parent component
-    if (typeof onClose === "function") {
-      onClose();
+  const handleUsernameChange = (e) => {
+    setUsername(e.target.value);
+    if (e.target.value.length < 3) {
+      setError("Username should be at least 3 characters");
+    } else {
+      setError("");
     }
   };
 
-  return (
-    <div className="modal-overlay">
-      <div className="modal-content">
-        <span className="modal-close" onClick={handleModalClose}>
-          <img src="./images/download3.png" alt="Close" />
-        </span>
-        <h2>Sign Up</h2>
+  const handleEmailChange = (e) => {
+    const emailValue = e.target.value;
+    setEmail(emailValue);
+
+    // Email validation regex pattern
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailValue) {
+      setError("Email is required");
+    } else if (!emailValue.includes("@")) {
+      setError("Email should contain @ symbol");
+    } else if (!emailRegex.test(emailValue)) {
+      setError("Invalid email format");
+    } else {
+      setError("");
+    }
+  };
+
+  if (isLoggedIn) {
+    return (
+      <div className="signup-container">
+        <div className="admin-dashboard">
+          <h1>Welcome to the Admin Dashboard</h1>
+          <Link to="/categorypage">Go to Category Page</Link>
+          <button onClick={handleLogout}>Logout</button>
+        </div>
+      </div>
+    );
+  } else {
+    return (
+      <div className="signup-container">
         <form className="signup-form" onSubmit={handleSubmit}>
+          <h2>New To Curio, Create account</h2>
+          {error && <p className="error-message">{error}</p>}
           <label>
-            Username:
             <input
+              placeholder="Username"
               type="text"
               value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              onChange={handleUsernameChange}
             />
           </label>
           <br />
           <label>
-            Email:
             <input
+              placeholder="Email"
               type="email"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={handleEmailChange}
             />
           </label>
           <br />
           <label>
-            Password:
             <input
+              placeholder="Password"
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
           </label>
           <br />
-          <button type="submit">Sign Up</button>
+          <label>
+            <input
+              placeholder="Confirm Password"
+              type="password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+            />
+          </label>
+          <br />
+          <button type="submit">Create Account</button>
         </form>
+        <div className="signup">
+          Already have an account? <Link to="/login">Login</Link>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 };
 
 export default SignupPage;

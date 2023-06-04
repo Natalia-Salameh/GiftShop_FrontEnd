@@ -1,0 +1,45 @@
+.centered-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid black; */
+  padding: 20px; /* Adjust the desired spacing */
+  box-sizing: border-box; /* Include padding within the total width and height */
+}
+
+.hom-div {
+  display: grid;
+  grid-template-columns: max-content auto; /* Adjust column widths as needed */
+  grid-gap: 10px; /* Adjust the gap between label-input pairs */
+  align-items: center; /* Vertically align items in each row */
+  border: 1px solid #ba7e7e;
+  padding: 15px; /* Adjust the desired spacing */
+  border-radius: 4px;
+}
+
+label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+label > input,
+label > textarea {
+  margin-left: 10px;
+}
+
+button {
+  padding: 10px 40px; /* Adjust the button size as desired */
+  margin-top: 10px;
+  background-color: #BA7E7E;;
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color:  #BA7E7E;;
+}

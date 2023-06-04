@@ -1,40 +1,150 @@
-.login-div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 50vh;
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
 }
 
-.login-form {
-    display: flex;
-    flex-direction: column;
-    width: 300px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+
+.login-form h2 {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 50px;
+  text-align: center;
 }
 
-label {
-    font-weight: bold;
-    margin-bottom: 10px;
+.login-form label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 600;
 }
 
-input {
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+.login-form input[type="text"],
+.login-form input[type="password"] {
+  border: none;
+  outline: none;
+  width: 100%;
+  padding: 10px;
+  border-bottom: 1px solid #000000;
+  /* Add a bottom line */
+  border-radius: 0;
+  box-sizing: border-box;
 }
 
-button {
-    padding: 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+.login-form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: x-small;
 }
 
-button:hover {
-    background-color: #0069d9;
+.login-form button:hover {
+  background-color: #333;
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  top: 0;
+}
+
+.google {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.line-container {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.line {
+  flex: 1;
+  height: 1px;
+  background-color: #e8e8e8;
+}
+
+.or-text {
+  margin: 0 10px;
+  color: #999;
+}
+
+.signup {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  color: #000;
+  font-weight: 300px;
+}
+
+.signup a {
+  color: #000;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.signup a:hover {
+  color: #333;
+}
+
+.admin-dashboard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.admin-dashboard a {
+  color: #000;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size:larger;
+}
+
+.admin-dashboard a:hover {
+  color: #333;
+}
+
+.admin-dashboard button {
+  width: 50%;
+  padding: 10px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: x-small;
+  margin-top: 400px;
+}
+
+.admin-dashboard button:hover {
+  background-color: #333;
+}
+
+.profile-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-page button {
+  width: 100%;
+  padding: 10px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: x-small;
+}
+
+.profile-page button:hover {
+  background-color: #333;
 }

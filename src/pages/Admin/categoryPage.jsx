@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import CategoryCard from '../../components/CategoryCard';
-
+import { Link } from 'react-router-dom';
+import './style.css'
 const CategoryPage = () => {
   const [category, setCategory] = useState([]);
 
@@ -17,15 +18,20 @@ const CategoryPage = () => {
 
   return (
     <div className="home-div">
+      <div className='iconleft'>
+       <Link to="/newcategory">
+          <button type="submit" className="icon-button"  title="Add new category">
+            <img className="search-icon" src="https://i.ibb.co/f2BsGYP/plus.png"  alt="Search" />
+          </button>
+        </Link>
+        </div>
   {category.map((category) => {
     return (
       <div className="product-card-container" key={category.id}>
-        <CategoryCard categoryList={category} />
+        <CategoryCard key={category.id} categoryList={category} />
       </div>
     );
   })}
-
-
     </div>
   );
 };

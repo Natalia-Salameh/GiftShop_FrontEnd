@@ -1,14 +1,13 @@
 import React from "react";
 import "./footer.css";
-import logo from "../../common/header/logo.png";
 
 const Footer = () => {
   return (
     <footer>
       <div className="x">
         <div className="box">
-          <img src={logo} alt="" />
-          <ul className="team-members">
+        <img src="./images/Asset 1.svg" alt="" />
+          <ul>
             <b><li>Natalia Salameh</li></b>
             <b><li>Seleena Shomali</li></b>
             <b><li>Shahd Ghayadah</li></b>

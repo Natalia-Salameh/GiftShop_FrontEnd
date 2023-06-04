@@ -1,33 +1,38 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-const ProductCard = ({ productList , id}) => {
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
+import { CartContext } from "../../components/AddToCart/cartContext";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import "./product.css";
 
-  const styles = {
-    backgroundImage: `url(${productList.image})`,
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: 'cover',
-   
+const ProductCard = ({ productList }) => {
+  const { addToCart } = useContext(CartContext);
+
+  const handleAddToCart = () => {
+    addToCart({ ...productList, quantity: 1 });
+    toast.success("Product added to cart successfully!", {
+      position: toast.POSITION.TOP_RIGHT,
+      autoClose: 2000,
+    });
   };
-  
-  return (
-    <Link to={`/products/id/${productList.id}`}>
-<div className="container" style={styles}>
 
-      <div className="overlay">
-        <h2 className="head">{productList.name}</h2>
-        <hr />
-        <p className="price">
-        {productList.price}$  
-            </p>
-        <div className="cart">
-          <i className="fas fa-shopping-cart"></i>
-          <button>Add to Cart</button>
+  return (
+    <div className="product-card">
+      <div className="image-container">
+        <Link to={`/products/id/${productList.id}`}>
+          <img src={productList.image} alt={productList.name} />
+        </Link>
+      </div>
+      <div className="details-container">
+        <p className="product-name">{productList.name}</p>
+        <div className="price-and-button">
+          <p className="product-price">{productList.price}$</p>
+          <button onClick={handleAddToCart} className="addd-button">
+            <i className="bi bi-plus-square"></i> </button>
         </div>
       </div>
     </div>
-    </Link>
   );
 };
 
 export default ProductCard;
-

@@ -1,0 +1,29 @@
+.search input {
+    border: none;
+    outline: none;
+    width: 60px;
+    min-width: 0;
+    padding: 0 0 5px; /* Add bottom padding for the line */
+    z-index: 1;
+    font-size: 14px;
+    -webkit-appearance: none;
+    font-family: 'Mukta Malar';
+    transition: all .6s ease;
+    color: #000000;
+    border-bottom: 1px solid #000000; /* Add a bottom line */
+    border-radius: 0;
+  }
+  
+  .search input + div {
+    height: 28px;
+    width: 100%;
+    margin: -28px 0 0 0;
+  }
+  
+  .search input:not(:placeholder-shown),
+  .search input:focus {
+    width: 70px;
+    padding: 0 4px;
+    cursor: text;
+  }
+  
